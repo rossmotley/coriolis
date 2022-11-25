@@ -72,7 +72,7 @@ namespace {
   class DefParser {
     public:
       const uint32_t NoPatch =  0;
-      const uint32_t Sky130  = (1 << 10);
+      const uint32_t Caravel  = (1 << 10);
     public:
       static AllianceFramework* getFramework             ();
       static Cell*              getLefCell               ( string name );
@@ -89,7 +89,7 @@ namespace {
                                 DefParser                ( string file, AllianceLibrary*, unsigned int flags );
                                ~DefParser                ();
       inline bool               hasErrors                ();
-      inline bool               isSky130                 () const;
+      inline bool               isCaravel                () const;
       inline unsigned int       getFlags                 () const;
       inline AllianceLibrary*   getLibrary               ();
       inline Cell*              getCell                  ();
@@ -182,9 +182,11 @@ namespace {
     defrSetSNetCbk         ( _snetCbk );
     defrSetPathCbk         ( _pathCbk );
 
-    if (DataBase::getDB()->getTechnology()->getName() == "Sky130") {
-      cmess1 << "     - Enabling SkyWater 130nm harness hacks." << endl;
-      _flags |= Sky130;
+    if ( (DataBase::getDB()->getTechnology()->getName() == "Sky130")
+         || (DataBase::getDB()->getTechnology()->getName() == "gf180mcu")
+    ) {
+       cmess1 << "     - Enabling Caravel harness hacks." << endl;
+      _flags |= Caravel;
     }
   }
 
@@ -198,7 +200,7 @@ namespace {
          AllianceFramework* DefParser::getFramework             () { return _framework; }
   inline void               DefParser::setUnits                 ( double units ) { _defUnits = 1/units; }
   inline DbU::Unit          DefParser::fromDefUnits             ( int u ) { return DbU::fromPhysical(_defUnits*(double)u,DbU::UnitPower::Micro); }
-  inline bool               DefParser::isSky130                 () const { return _flags & Sky130; }
+  inline bool               DefParser::isCaravel                () const { return _flags & Caravel; }
   inline bool               DefParser::hasErrors                () { return not _errors.empty(); }
   inline unsigned int       DefParser::getFlags                 () const { return _flags; }
   inline string             DefParser::getBusBits               () const { return _busBits; }
@@ -397,7 +399,7 @@ namespace {
 
   Layer* DefParser::lookupLayer ( string layerName )
   {
-    if (_flags & Sky130) {
+    if (isCaravel()) {
       if (layerName.substr(0,3) == "met") layerName.erase( 1, 2 );
     }
     return _technology->getLayer( layerName );
@@ -543,7 +545,7 @@ namespace {
     string pinName = pin->pinName();
     parser->toHurricaneName( netName );
     parser->toHurricaneName( pinName );
-    if (parser->isSky130() and (pinName.substr(0,3) == "io_" ))
+    if (parser->isCaravel() and (pinName.substr(0,3) == "io_" ))
       netName = pinName;
 
     NetDatas* netDatas = parser->lookupNet( netName );
