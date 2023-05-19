@@ -333,6 +333,14 @@ class CoreWire ( object ):
                 vStrapBb.inflate( 0, -self.padSegment.getLayer().getExtentionCap()
                                 , 0, -self.padSegment.getLayer().getExtentionCap() )
             v = Vertical.create( self.chipNet
+                               , self.symSegmentLayer
+                               , vStrapBb.getCenter().getX()
+                               , vStrapBb.getWidth()
+                               , vStrapBb.getYMin()
+                               , vStrapBb.getYMax()
+                               )
+            trace( 550, '\tvChip={}\n'.format( v ))
+            v = Vertical.create( self.chipNet
                                , self.padSegment.getLayer()
                                , vStrapBb.getCenter().getX()
                                , vStrapBb.getWidth()
@@ -437,6 +445,14 @@ class CoreWire ( object ):
             if self.padSegment.getLayer().isSymbolic():
                 hStrapBb.inflate( -self.padSegment.getLayer().getExtentionCap(), 0
                                 , -self.padSegment.getLayer().getExtentionCap(), 0 )
+            hStrap = Horizontal.create( self.chipNet
+                                      , self.symSegmentLayer
+                                      , hStrapBb.getCenter().getY()
+                                      , hStrapBb.getHeight()
+                                      , hStrapBb.getXMin()
+                                      , hStrapBb.getXMax()
+                                      )
+            trace( 550, '\thStrap={}\n'.format(hStrap) )
             hStrap = Horizontal.create( self.chipNet
                                       , self.padSegment.getLayer()
                                       , hStrapBb.getCenter().getY()
