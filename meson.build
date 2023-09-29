@@ -52,6 +52,22 @@ flex = find_program('flex', required: true)
 bison = find_program('bison', required: true)
 thread_dep = dependency('threads')
 
+doxygen = find_program('doxygen', required : false)
+if not doxygen.found()
+  error('MESON_SKIP_TEST doxygen not found.')
+endif
+
+cdata = configuration_data()
+cdata.set('VERSION', meson.project_version())
+
+if find_program('dot', required : false).found()
+  cdata.set('HAVE_DOT', 'YES')
+else
+  cdata.set('HAVE_DOT', 'NO')
+endif
+
+
+
 if build_machine.system() == 'darwin'
   add_project_arguments('-mmacosx-version-min=13.0', language: ['c','cpp'])
 
