@@ -1,4 +1,4 @@
-# Doxyfile 1.9.8
+#oxyfile 1.9.8
 
 # This file describes the settings to be used by the documentation system
 # doxygen (www.doxygen.org) for a project.
@@ -48,7 +48,7 @@ PROJECT_NAME           = "Oroshi - Analog Devices Layout"
 # could be handy for archiving the generated documentation or if some version
 # control system is used.
 
-PROJECT_NUMBER         = 1.0
+PROJECT_NUMBER         = @VERSION@
 
 # Using the PROJECT_BRIEF tag one can provide an optional one line description
 # for a project that appears at the top of each page and should give viewer a
@@ -68,7 +68,7 @@ PROJECT_LOGO           =
 # entered, it will be relative to the location where doxygen was started. If
 # left blank the current directory will be used.
 
-OUTPUT_DIRECTORY       = .
+OUTPUT_DIRECTORY       = @TOP_BUILDDIR@/doc/oroshi
 
 # If the CREATE_SUBDIRS tag is set to YES then doxygen will create up to 4096
 # sub-directories (in 2 levels) under the output directory of each output format
@@ -981,14 +981,14 @@ WARN_LOGFILE           =
 # spaces. See also FILE_PATTERNS and EXTENSION_MAPPING
 # Note: If this tag is empty the current directory is searched.
 
-INPUT                  = ../python/stack.py \
-                         ../python/wip_transistor.py \
-                         ../python/wip_dp.py \
-                         ../python/wip_csp.py \
-                         ../python/capacitorunit.py \
-                         ../python/capacitormatrix.py \
-                         ../python/capacitorrouted.py \
-                         ../python/capacitorvrtracks.py
+INPUT                  = @TOP_SRCDIR@/oroshi/python/stack.py \
+                         @TOP_SRCDIR@/oroshi/python/wip_transistor.py \
+                         @TOP_SRCDIR@/oroshi/python/wip_dp.py \
+                         @TOP_SRCDIR@/oroshi/python/wip_csp.py \
+                         @TOP_SRCDIR@/oroshi/python/capacitorunit.py \
+                         @TOP_SRCDIR@/oroshi/python/capacitormatrix.py \
+                         @TOP_SRCDIR@/oroshi/python/capacitorrouted.py \
+                         @TOP_SRCDIR@/oroshi/python/capacitorvrtracks.py
 
 # This tag can be used to specify the character encoding of the source files
 # that doxygen parses. Internally doxygen uses the UTF-8 encoding. Doxygen uses
@@ -1313,7 +1313,7 @@ HTML_FILE_EXTENSION    = .html
 # of the possible markers and block names see the documentation.
 # This tag requires that the tag GENERATE_HTML is set to YES.
 
-HTML_HEADER            = header.html
+HTML_HEADER            = "@DOCDIR@/header.html"
 
 # The HTML_FOOTER tag can be used to specify a user-defined HTML footer for each
 # generated HTML page. If the tag is left blank doxygen will generate a standard
@@ -1323,7 +1323,7 @@ HTML_HEADER            = header.html
 # that doxygen normally uses.
 # This tag requires that the tag GENERATE_HTML is set to YES.
 
-HTML_FOOTER            = footer.html
+HTML_FOOTER            = "@DOCDIR@/footer.html"
 
 # The HTML_STYLESHEET tag can be used to specify a user-defined cascading style
 # sheet that is used by each HTML page. It can be used to fine-tune the look of
@@ -1335,7 +1335,7 @@ HTML_FOOTER            = footer.html
 # obsolete.
 # This tag requires that the tag GENERATE_HTML is set to YES.
 
-HTML_STYLESHEET        = SoC.css
+HTML_STYLESHEET        = "@DOCDIR@/SoC.css"
 
 # The HTML_EXTRA_STYLESHEET tag can be used to specify additional user-defined
 # cascading style sheets that are included after the standard style sheets
@@ -2010,7 +2010,7 @@ EXTRA_PACKAGES         =
 # description of the possible markers and block names see the documentation.
 # This tag requires that the tag GENERATE_LATEX is set to YES.
 
-LATEX_HEADER           = header.tex
+LATEX_HEADER           = "@DOCDIR@/header.tex"
 
 # The LATEX_FOOTER tag can be used to specify a user-defined LaTeX footer for
 # the generated LaTeX document. The footer should contain everything after the
@@ -2424,15 +2424,15 @@ SKIP_FUNCTION_MACROS   = YES
 # the path). If a tag file is not located in the directory in which doxygen is
 # run, you must also specify the path to the tagfile here.
 
-TAGFILES               = ../../hurricane/doc/hurricane/html/hurricane.tag=../hurricane \
-                         ../../hurricane/doc/viewer/html/viewer.tag=../viewer \
-                         ../../crlcore/doc/crlcore/html/crlcore.tag=../crlcore
+TAGFILES               = ../hurricane.tag=../hurricane \
+                         @TOP_SRCDIR@/hurricane/doc/viewer/html/viewer.tag=../viewer \
+                         @TOP_SRCDIR@/crlcore/doc/crlcore/html/crlcore.tag=../crlcore
 
 # When a file name is specified after GENERATE_TAGFILE, doxygen will create a
 # tag file that is based on the input files it reads. See section "Linking to
 # external documentation" for more information about the usage of tag files.
 
-GENERATE_TAGFILE       = html/katabatic.tag
+GENERATE_TAGFILE       = @TOP_BUILDDIR@/doc/html/oroshi.tag
 
 # If the ALLEXTERNALS tag is set to YES, all external classes and namespaces
 # will be listed in the class and namespace index. If set to NO, only the
