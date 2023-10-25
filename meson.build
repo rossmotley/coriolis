@@ -55,6 +55,7 @@ thread_dep = dependency('threads')
 doxygen = find_program('doxygen', required: true)
 dot = find_program('dot', required: true)
 
+docdir = join_paths(get_option('datadir'), 'doc')
 
 if build_machine.system() == 'darwin'
   add_project_arguments('-mmacosx-version-min=13.0', language: ['c','cpp'])

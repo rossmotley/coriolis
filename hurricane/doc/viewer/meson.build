@@ -12,14 +12,12 @@ doxyfile = configure_file(
   install: false
 )
 
-datadir = join_paths(get_option('datadir'), 'doc', 'viewer')
-
 viewer_docs = custom_target(
   'viewer-docs',
   input: doxyfile,
   output: 'html',
   command: [doxygen, doxyfile],
   install: true,
-  install_dir: datadir
+  install_dir: docdir
 )
 

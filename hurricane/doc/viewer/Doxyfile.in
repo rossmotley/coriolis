@@ -274,10 +274,10 @@ TAB_SIZE               = 2
 # @} or use a double escape (\\{ and \\})
 
 ALIASES                = "function=\fn" \
-                         "important=\par Important:\n" \
-                         "caution=\par Caution:\n" \
-                         "remark=\par Remark:\n" \
-                         "sample=\par Sample:\n" \
+                         "important=\par Important:^^" \
+                         "caution=\par Caution:^^" \
+                         "remark=\par Remark:^^" \
+                         "sample=\par Sample:^^" \
                          "Return=<b>Returns:</b>" \
                          "unsigned=\c unsigned" \
                          "POD=\c POD" \
