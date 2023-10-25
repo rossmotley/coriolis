@@ -12,10 +12,10 @@ doxyfile = configure_file(
   install: false
 )
 
-datadir = join_paths(get_option('datadir'), 'doc', 'hurricane')
+datadir = join_paths(get_option('datadir'), 'doc', 'viewer')
 
-hurricane_docs = custom_target(
-  'hurricane-docs',
+viewer_docs = custom_target(
+  'viewer-docs',
   input: doxyfile,
   output: 'html',
   command: [doxygen, doxyfile],

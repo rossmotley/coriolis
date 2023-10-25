@@ -12,10 +12,10 @@ doxyfile = configure_file(
   install: false
 )
 
-datadir = join_paths(get_option('datadir'), 'doc', 'hurricane')
+datadir = join_paths(get_option('datadir'), 'doc', 'oroshi')
 
-hurricane_docs = custom_target(
-  'hurricane-docs',
+oroshi_docs = custom_target(
+  'oroshi-docs',
   input: doxyfile,
   output: 'html',
   command: [doxygen, doxyfile],
