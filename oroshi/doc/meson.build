@@ -17,6 +17,7 @@ oroshi_docs = custom_target(
   input: doxyfile,
   output: 'html',
   command: [doxygen, doxyfile],
+  depends: [hurricane_docs, viewer_docs, crlcore_docs],
   install: true,
   install_dir: docdir
 )

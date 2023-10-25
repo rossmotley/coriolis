@@ -48,7 +48,7 @@ PROJECT_NAME           = "Coriolis Core (CRL)"
 # could be handy for archiving the generated documentation or if some version
 # control system is used.
 
-PROJECT_NUMBER         = 3.0
+PROJECT_NUMBER         = @VERSION@
 
 # Using the PROJECT_BRIEF tag one can provide an optional one line description
 # for a project that appears at the top of each page and should give viewer a
@@ -68,7 +68,7 @@ PROJECT_LOGO           =
 # entered, it will be relative to the location where doxygen was started. If
 # left blank the current directory will be used.
 
-OUTPUT_DIRECTORY       = .
+OUTPUT_DIRECTORY       = @DOCBUILDDIR@
 
 # If the CREATE_SUBDIRS tag is set to YES then doxygen will create up to 4096
 # sub-directories (in 2 levels) under the output directory of each output format
@@ -274,10 +274,10 @@ TAB_SIZE               = 2
 # @} or use a double escape (\\{ and \\})
 
 ALIASES                = "function=\fn" \
-                         "important=\par Important:\n" \
-                         "caution=\par Caution:\n" \
-                         "remark=\par Remark:\n" \
-                         "sample=\par Sample:\n" \
+                         "important=\par Important:^^" \
+                         "caution=\par Caution:^^" \
+                         "remark=\par Remark:^^" \
+                         "sample=\par Sample:^^" \
                          "Return=<b>Returns:</b>" \
                          "unsigned=\c unsigned" \
                          "POD=\c POD" \
@@ -964,30 +964,30 @@ WARN_LOGFILE           =
 # spaces. See also FILE_PATTERNS and EXTENSION_MAPPING
 # Note: If this tag is empty the current directory is searched.
 
-INPUT                  = ../../src/ccore/crlcore/Environment.h \
-                         Environment.dox \
-                         ../../src/ccore/crlcore/Banner.h \
-                         Banner.dox \
-                         ../../src/ccore/crlcore/Catalog.h \
-                         Catalog.dox \
-                         ../../src/ccore/crlcore/SearchPath.h \
-                         SearchPath.dox \
-                         ../../src/ccore/crlcore/AllianceLibrary.h \
-                         AllianceLibrary.dox \
-                         ../../src/ccore/crlcore/RoutingLayerGauge.h \
-                         RoutingLayerGauge.dox \
-                         ../../src/ccore/crlcore/RoutingGauge.h \
-                         RoutingGauge.dox \
-                         ../../src/ccore/crlcore/AllianceFramework.h \
-                         AllianceFramework.dox \
-                         ../../src/ccore/crlcore/AcmSigda.h \
-                         AcmSigda.dox \
-                         ToolEngine.dox \
-                         ../../src/ccore/crlcore/ToolEngine.h \
-                         ../../src/ccore/crlcore/ToolEngines.h \
-                         GraphicTool.dox \
-                         ../../src/ccore/crlcore/GraphicToolEngine.h \
-                         CRL.dox
+INPUT                  = @TOP_SRCDIR@/crlcore/src/ccore/crlcore/AcmSigda.h \
+                         @TOP_SRCDIR@/crlcore/src/ccore/crlcore/AllianceFramework.h \
+                         @TOP_SRCDIR@/crlcore/src/ccore/crlcore/AllianceLibrary.h \
+                         @TOP_SRCDIR@/crlcore/src/ccore/crlcore/Banner.h \
+                         @TOP_SRCDIR@/crlcore/src/ccore/crlcore/Catalog.h \
+                         @TOP_SRCDIR@/crlcore/src/ccore/crlcore/Environment.h \
+                         @TOP_SRCDIR@/crlcore/src/ccore/crlcore/GraphicToolEngine.h \
+                         @TOP_SRCDIR@/crlcore/src/ccore/crlcore/RoutingGauge.h \
+                         @TOP_SRCDIR@/crlcore/src/ccore/crlcore/RoutingLayerGauge.h \
+                         @TOP_SRCDIR@/crlcore/src/ccore/crlcore/SearchPath.h \
+                         @TOP_SRCDIR@/crlcore/src/ccore/crlcore/ToolEngine.h \
+                         @TOP_SRCDIR@/crlcore/src/ccore/crlcore/ToolEngines.h \
+                         @DOCDIR@/AcmSigda.dox \
+                         @DOCDIR@/AllianceFramework.dox \
+                         @DOCDIR@/AllianceLibrary.dox \
+                         @DOCDIR@/Banner.dox \
+                         @DOCDIR@/CRL.dox \
+                         @DOCDIR@/Catalog.dox \
+                         @DOCDIR@/Environment.dox \
+                         @DOCDIR@/GraphicTool.dox \
+                         @DOCDIR@/RoutingGauge.dox \
+                         @DOCDIR@/RoutingLayerGauge.dox \
+                         @DOCDIR@/SearchPath.dox \
+                         @DOCDIR@/ToolEngine.dox
 
 # This tag can be used to specify the character encoding of the source files
 # that doxygen parses. Internally doxygen uses the UTF-8 encoding. Doxygen uses
@@ -1094,7 +1094,7 @@ EXAMPLE_RECURSIVE      = NO
 # that contain images that are to be included in the documentation (see the
 # \image command).
 
-IMAGE_PATH             = images
+IMAGE_PATH             = @DOCDIR@/images
 
 # The INPUT_FILTER tag can be used to specify a program that doxygen should
 # invoke to filter for each input file. Doxygen will invoke the filter program
@@ -1287,7 +1287,7 @@ GENERATE_HTML          = YES
 # The default directory is: html.
 # This tag requires that the tag GENERATE_HTML is set to YES.
 
-HTML_OUTPUT            = html
+HTML_OUTPUT            = html/crlcore
 
 # The HTML_FILE_EXTENSION tag can be used to specify the file extension for each
 # generated HTML page (for example: .htm, .php, .asp).
@@ -1314,7 +1314,7 @@ HTML_FILE_EXTENSION    = .html
 # of the possible markers and block names see the documentation.
 # This tag requires that the tag GENERATE_HTML is set to YES.
 
-HTML_HEADER            = header.html
+HTML_HEADER            = @DOCDIR@/header.html
 
 # The HTML_FOOTER tag can be used to specify a user-defined HTML footer for each
 # generated HTML page. If the tag is left blank doxygen will generate a standard
@@ -1324,7 +1324,7 @@ HTML_HEADER            = header.html
 # that doxygen normally uses.
 # This tag requires that the tag GENERATE_HTML is set to YES.
 
-HTML_FOOTER            = footer.html
+HTML_FOOTER            = @DOCDIR@/footer.html
 
 # The HTML_STYLESHEET tag can be used to specify a user-defined cascading style
 # sheet that is used by each HTML page. It can be used to fine-tune the look of
@@ -1336,7 +1336,7 @@ HTML_FOOTER            = footer.html
 # obsolete.
 # This tag requires that the tag GENERATE_HTML is set to YES.
 
-HTML_STYLESHEET        = SoC.css
+HTML_STYLESHEET        = @DOCDIR@/SoC.css
 
 # The HTML_EXTRA_STYLESHEET tag can be used to specify additional user-defined
 # cascading style sheets that are included after the standard style sheets
@@ -1982,7 +1982,7 @@ COMPACT_LATEX          = NO
 # The default value is: a4.
 # This tag requires that the tag GENERATE_LATEX is set to YES.
 
-PAPER_TYPE             = a4wide
+PAPER_TYPE             = a4
 
 # The EXTRA_PACKAGES tag can be used to specify one or more LaTeX package names
 # that should be included in the LaTeX output. The package can be specified just
@@ -2011,7 +2011,7 @@ EXTRA_PACKAGES         =
 # description of the possible markers and block names see the documentation.
 # This tag requires that the tag GENERATE_LATEX is set to YES.
 
-LATEX_HEADER           = header.tex
+LATEX_HEADER           = @DOCDIR@/header.tex
 
 # The LATEX_FOOTER tag can be used to specify a user-defined LaTeX footer for
 # the generated LaTeX document. The footer should contain everything after the
@@ -2425,15 +2425,15 @@ SKIP_FUNCTION_MACROS   = YES
 # the path). If a tag file is not located in the directory in which doxygen is
 # run, you must also specify the path to the tagfile here.
 
-TAGFILES               = "../../../hurricane/doc/hurricane/html/hurricane.tag=../hurricane" \
-                         "../../../hurricane/doc/viewer/html/viewer.tag=../viewer" \
-                         "../../../unicorn/doc/unicorn/html/unicorn.tag=../unicorn"
+TAGFILES               = "@DOCBUILDDIR@/html/hurricane.tag=../hurricane" \
+                         "@DOCBUILDDIR@/html/viewer.tag=../viewer" \
+                         "@DOCBUILDDIR@/html/unicorn.tag=../unicorn"
 
 # When a file name is specified after GENERATE_TAGFILE, doxygen will create a
 # tag file that is based on the input files it reads. See section "Linking to
 # external documentation" for more information about the usage of tag files.
 
-GENERATE_TAGFILE       = html/crlcore.tag
+GENERATE_TAGFILE       = @DOCBUILDDIR@/html/crlcore.tag
 
 # If the ALLEXTERNALS tag is set to YES, all external classes and namespaces
 # will be listed in the class and namespace index. If set to NO, only the

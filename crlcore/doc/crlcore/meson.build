@@ -12,12 +12,12 @@ doxyfile = configure_file(
   install: false
 )
 
-viewer_docs = custom_target(
-  'viewer-docs',
+crlcore_docs = custom_target(
+  'crlcore-docs',
   input: doxyfile,
   output: 'html',
   command: [doxygen, doxyfile],
-  depends: hurricane_docs,
+  depends: [hurricane_docs, viewer_docs], #unicorn_docs
   install: true,
   install_dir: docdir
 )
