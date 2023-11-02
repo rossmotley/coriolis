@@ -1,4 +1,4 @@
-# Doxyfile 1.9.8
+# Doxyfile @DOCDIR@/1.9.8
 
 # This file describes the settings to be used by the documentation system
 # doxygen (www.doxygen.org) for a project.
@@ -27,7 +27,7 @@
 # Project related configuration options
 #---------------------------------------------------------------------------
 
-# This tag specifies the encoding used for all characters in the configuration
+@DOCDIR/# This tag specifies the encoding used for all characters in the configuration
 # file that follow. The default is UTF-8 which is also the encoding used for all
 # text before the first occurrence of this tag. Doxygen uses libiconv (or the
 # iconv built into libc) for the transcoding. See
@@ -1278,7 +1278,7 @@ GENERATE_HTML          = YES
 # The default directory is: html.
 # This tag requires that the tag GENERATE_HTML is set to YES.
 
-HTML_OUTPUT            = html/viewer
+HTML_OUTPUT            = viewer
 
 # The HTML_FILE_EXTENSION tag can be used to specify the file extension for each
 # generated HTML page (for example: .htm, .php, .asp).

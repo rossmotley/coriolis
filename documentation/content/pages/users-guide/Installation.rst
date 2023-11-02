@@ -8,6 +8,7 @@ We reccomend installing directly from Pypi <https://pypi.org/>`_. First install 
 
 
 .. code-block:: bash
+
    pip3 install coriolis-eda
 
 

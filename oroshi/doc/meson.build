@@ -15,10 +15,10 @@ doxyfile = configure_file(
 oroshi_docs = custom_target(
   'oroshi-docs',
   input: doxyfile,
-  output: 'html',
+  output: 'oroshi',
   command: [doxygen, doxyfile],
   depends: [hurricane_docs, viewer_docs, crlcore_docs],
   install: true,
-  install_dir: docdir
+  install_dir: htmldir
 )
 

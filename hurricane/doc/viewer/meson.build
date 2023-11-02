@@ -15,10 +15,10 @@ doxyfile = configure_file(
 viewer_docs = custom_target(
   'viewer-docs',
   input: doxyfile,
-  output: 'html',
+  output: 'viewer',
   command: [doxygen, doxyfile],
   depends: hurricane_docs,
   install: true,
-  install_dir: docdir
+  install_dir: htmldir
 )
 

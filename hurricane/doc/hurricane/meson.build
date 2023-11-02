@@ -15,9 +15,9 @@ doxyfile = configure_file(
 hurricane_docs = custom_target(
   'hurricane-docs',
   input: doxyfile,
-  output: 'html',
+  output: 'hurricane',
   command: [doxygen, doxyfile],
   install: true,
-  install_dir: docdir
+  install_dir: htmldir
 )
 

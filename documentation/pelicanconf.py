@@ -6,23 +6,9 @@ import os
 import os.path
 import socket
 
-pelicanDir = os.path.abspath( os.getcwd() )
 hostname   = socket.gethostname()
 
-if pelicanDir.endswith('coriolis/documentation'):
-  pluginsDir = '/dsk/l1/pelican/pelican-plugins'
-  outputDir  = 'output/'
-  siteUrl    = ''
-elif hostname.startswith('lepka'):
-  pluginsDir = '/dsk/l1/pelican/pelican-plugins'
-  outputDir  = '/dsk/l1/httpd/coriolis'
-  siteUrl    = 'http://localhost/coriolis'
-else:
-  pluginsDir = '/data/git/pelican-plugins'
-  outputDir  = 'output/'
-  siteUrl    = ''
-
-PLUGIN_PATHS = [ pluginsDir ]
+PLUGIN_PATHS = [ 'pelican-plugins' ]
 PLUGINS      = [ 'bootstrap-rst' ]
 
 STATIC_PATHS = [ 'pages/users-guide'
@@ -41,7 +27,7 @@ STATIC_PATHS = [ 'pages/users-guide'
 
 AUTHOR   = u'Jean-Paul Chaput'
 SITENAME = u'Coriolis VLSI CAD Tools [offline]'
-SITEURL  = siteUrl
+SITEURL  = u'https://coriolis.lip6.github.com/'
 
 THEME = './themes/nest-coriolis'
 #THEME = 'nest'

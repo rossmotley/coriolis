@@ -15,10 +15,10 @@ doxyfile = configure_file(
 crlcore_docs = custom_target(
   'crlcore-docs',
   input: doxyfile,
-  output: 'html',
+  output: 'crlcore',
   command: [doxygen, doxyfile],
   depends: [hurricane_docs, viewer_docs], #unicorn_docs
   install: true,
-  install_dir: docdir
+  install_dir: htmldir
 )
 

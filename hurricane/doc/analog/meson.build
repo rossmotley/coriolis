@@ -16,9 +16,10 @@ doxyfile = configure_file(
 analog_docs = custom_target(
   'analog-docs',
   input: doxyfile,
-  output: 'html',
+  output: 'analog',
   command: [doxygen, doxyfile],
+  depends: hurricane_docs,
   install: true,
-  install_dir: docdir
+  install_dir: htmldir
 )
 
