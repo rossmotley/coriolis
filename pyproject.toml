@@ -69,7 +69,7 @@ before-all = '''
 [tool.pdm.dev-dependencies]
 doc = [
     "pelican",
-    "docutils >=0.16",
+    "docutils >= 0.20",
     "markupsafe >= 2.0.0"
 ]
 dev = [
