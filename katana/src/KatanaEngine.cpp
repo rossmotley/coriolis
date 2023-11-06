@@ -234,8 +234,7 @@ namespace Katana {
 
     //Isobar::Script::removePath( systemConfDir.toString() );
     } else {
-      cerr << Warning( "Katana system configuration file:\n  <%s> not found."
-                     , systemConfFile.toString().c_str() ) << endl;
+      cmess1 << Warning("Katana system configuration file:\n  <%s> not found.", systemConfFile.toString().c_str()) << endl;
     }
   }
 
